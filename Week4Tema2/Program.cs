@@ -12,18 +12,18 @@ namespace Week4Tema2
     {
         public static void Main(string [] args)
         {
+            //Enquue
             Queues myQueue = new Queues(5);
             myQueue.insert(100);
             myQueue.insert(10);
             myQueue.insert(20);
-            myQueue.insert(30);
-            myQueue.View();           
+            myQueue.insert(30);            
+            myQueue.View();
 
-            Console.WriteLine($"Front of queue is {myQueue.peekFront()} ");
-
-            Console.WriteLine("About to remove item from queue");
+            //Dequeue
             myQueue.Remove();
-            Console.WriteLine($"Front of queue is {myQueue.peekFront()} ");
+            Console.WriteLine(myQueue.peekFront());
+            
             Console.ReadLine();
         }
 

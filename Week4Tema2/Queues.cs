@@ -8,8 +8,9 @@ using System.Collections;
 namespace Week4Tema2
 {
     public class Queues
-    {
+    //M-am inspirat din https://www.lynda.com/C-tutorials/Queue-explained/604241/636313-4.html
 
+    {
         private int maxSize;
         private long[] MyQueue;
         private int front;
@@ -24,30 +25,25 @@ namespace Week4Tema2
             rear = -1;
             items = 0;
         }
+
         public void insert(long j)
         {
-            if(isFull())
+
+            if (rear == maxSize - 1)
             {
-                Console.WriteLine("Queue is full");
+                rear = -1;
             }
-            else
-            {
-                if (rear == maxSize - 1)
-                {
-                    rear = -1;
-                }
-                rear++;
-                MyQueue[rear] = j;
-                items++;
-            }
-            
+            rear++;
+            MyQueue[rear] = j;
+            items++;
+
         }
 
         public long Remove()
         {
             long temp = MyQueue[front];
             front++;
-            if (front==maxSize)
+            if (front == maxSize)
             {
                 front = 0;
             }
@@ -56,24 +52,14 @@ namespace Week4Tema2
         public long peekFront()
         {
             return MyQueue[front];
-        }
-
-        public bool isEmpty()
-        {
-            return (items == 0);
-        }
-
-        private bool isFull()
-        {
-            return (items == maxSize);
-        }
+        } 
 
         public void View()
         {
             Console.Write("[");
             for (int i = 0; i < MyQueue.Length; i++)
             {
-                Console.Write(MyQueue[i]+ " ");
+                Console.Write(MyQueue[i] + " ");
             }
             Console.WriteLine("]");
         }
